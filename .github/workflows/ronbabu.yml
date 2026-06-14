@@ -1,0 +1,25 @@
+name: Ron Babu GitHub Actions Lab
+
+"on":
+  push:
+    branches:
+      - main
+
+jobs:
+  run-python-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Repository Code
+        uses: actions/checkout@v4
+
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Project Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Execute Python Program
+        run: python app.py
